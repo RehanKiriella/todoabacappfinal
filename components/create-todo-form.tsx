@@ -12,12 +12,12 @@ import {
   DialogTrigger,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { Plus } from "lucide-react"; // Nice icon for the button
+import { Plus } from "lucide-react"; 
 
 export function CreateTodoForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [open, setOpen] = useState(false); // Controls the modal visibility
+  const [open, setOpen] = useState(false); 
   const queryClient = useQueryClient();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -29,12 +29,12 @@ export function CreateTodoForm() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ 
         title, 
-        description, // Correctly sending the description
+        description, 
         status: "in_progress" 
       }),
     });
 
-    // Reset and Close
+    
     setTitle("");
     setDescription("");
     setOpen(false); 
@@ -44,7 +44,7 @@ export function CreateTodoForm() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      {/* The Button that triggers the popup */}
+      {}
       <DialogTrigger asChild>
         <Button className="mb-6 flex gap-2 bg-blue-600 hover:bg-blue-700">
           <Plus className="w-4 h-4" />

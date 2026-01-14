@@ -1,12 +1,12 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "./db/index";
-import * as schema from "./db/schema"; // Import your schema file
+import * as schema from "./db/schema"; 
 
 export const auth = betterAuth({
     database: drizzleAdapter(db, {
         provider: "sqlite",
-        schema: schema, // This fixes the "Please pass the schema directly" error
+        schema: schema, 
     }),
     
     emailAndPassword: {

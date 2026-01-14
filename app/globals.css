@@ -9,9 +9,9 @@
   --color-border: var(--border);
   --color-ring: var(--ring);
 
-  /* Friendly Accent Colors */
+ 
   --color-accent-blue: oklch(0.6 0.15 250);
-  --color-friendly-red: oklch(0.65 0.18 15); /* Soft, professional red */
+  --color-friendly-red: oklch(0.65 0.18 15);
 }
 
 :root {

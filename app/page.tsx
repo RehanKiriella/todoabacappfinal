@@ -13,7 +13,6 @@ export default function Home() {
   const router = useRouter();
   const { data: session, isPending: isSessionLoading } = authClient.useSession();
   
-  // --- REDIRECT LOGIC ---
   useEffect(() => {
     if (!isSessionLoading && !session) {
       router.push("/login");
@@ -27,7 +26,7 @@ export default function Home() {
       if (!response.ok) throw new Error("Failed to fetch todos");
       return response.json();
     },
-    enabled: !!session, // Only fetch if session exists
+    enabled: !!session, 
   });
 
   const handleSignOut = async () => {
@@ -40,11 +39,10 @@ export default function Home() {
     role: session.user.role as Role 
   }) : false;
 
-  // Show nothing or a clean spinner while redirecting/loading
   if (isSessionLoading || !session) {
     return (
       <div className="flex h-screen items-center justify-center">
-        <div className="h-5 w-5 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+   <div className="h-5 w-5 animate-spin rounded-full border-2 border-primary border-t-transparent" />
       </div>
     );
   }

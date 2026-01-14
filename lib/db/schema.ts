@@ -1,6 +1,6 @@
 import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
 
-// --- YOUR EXISTING TABLE ---
+
 export const todos = sqliteTable("todos", {
   id: text("id").primaryKey(),
   title: text("title").notNull(),
@@ -9,7 +9,7 @@ export const todos = sqliteTable("todos", {
   userId: text("userId").notNull(),
 });
 
-// --- BETTER AUTH REQUIRED TABLES ---
+
 export const user = sqliteTable("user", {
     id: text("id").primaryKey(),
     name: text("name").notNull(),
@@ -18,7 +18,7 @@ export const user = sqliteTable("user", {
     image: text("image"),
     createdAt: integer("createdAt", { mode: "timestamp" }).notNull(),
     updatedAt: integer("updatedAt", { mode: "timestamp" }).notNull(),
-    role: text("role").default("user"), // Matches your ABAC requirement
+    role: text("role").default("user"), 
 });
 
 export const session = sqliteTable("session", {

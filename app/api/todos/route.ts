@@ -1,6 +1,6 @@
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { todos, user } from "@/lib/db/schema"; // Ensure 'user' is imported from your schema
+import { todos, user } from "@/lib/db/schema"; 
 import { canViewTodo, canDeleteTodo, canUpdateTodo, Role } from "@/lib/permissions"; 
 import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
@@ -10,7 +10,7 @@ export async function GET() {
   const session = await auth.api.getSession({ headers: await headers() });
   if (!session) return new NextResponse("Unauthorized", { status: 401 });
 
-  // Use a join to get the user's name along with the todo data
+  
   const allTodosWithUsers = await db
     .select({
       id: todos.id,
@@ -18,7 +18,7 @@ export async function GET() {
       description: todos.description,
       status: todos.status,
       userId: todos.userId,
-      userName: user.name, // Fetch the creator's name
+      userName: user.name, 
     })
     .from(todos)
     .leftJoin(user, eq(todos.userId, user.id));
@@ -30,7 +30,7 @@ export async function GET() {
   return NextResponse.json(filteredTodos);
 }
 
-// POST, PATCH, and DELETE remain the same as your current implementation
+
 export async function POST(req: Request) {
   const session = await auth.api.getSession({ headers: await headers() });
   if (!session || (session.user.role !== "user" && session.user.role !== "admin")) {

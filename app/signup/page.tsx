@@ -3,13 +3,13 @@ import { useState } from "react";
 import { authClient } from "@/lib/auth-client"; 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Eye, EyeOff } from "lucide-react"; // npm install lucide-react
+import { Eye, EyeOff } from "lucide-react"; 
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [role, setRole] = useState("user"); // Default to user
+  const [role, setRole] = useState("user"); 
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
@@ -20,7 +20,7 @@ export default function SignUpPage() {
       email,
       password,
       name,
-      // Pass the selected role to the metadata or additional fields
+      
       role, 
       callbackURL: "/",
     });
@@ -42,7 +42,7 @@ export default function SignUpPage() {
         <input type="text" placeholder="Full Name" className="w-full p-2 mb-4 border rounded text-black" onChange={(e) => setName(e.target.value)} value={name} />
         <input type="email" placeholder="Email" className="w-full p-2 mb-4 border rounded text-black" onChange={(e) => setEmail(e.target.value)} value={email} />
         
-        {/* Password with Eye Icon */}
+        {}
         <div className="relative mb-4">
           <input 
             type={showPassword ? "text" : "password"} 
@@ -56,7 +56,7 @@ export default function SignUpPage() {
           </button>
         </div>
 
-        {/* Role Selector */}
+        {}
         <label className="text-sm font-semibold text-gray-700 mb-1 block">Select Role</label>
         <select 
           className="w-full p-2 mb-6 border rounded text-black bg-white"
