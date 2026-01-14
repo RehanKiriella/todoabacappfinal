@@ -29,4 +29,4 @@ npx drizzle-kit push
 
 npm run dev
 
-**Access the app at: http://localhost:3000/signup**
+**Access the app at: http://localhost:3000/**
